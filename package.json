@@ -1,29 +1,32 @@
 {
-  "name": "opml-generator",
-  "version": "1.0.0",
-  "description": "opml generator for node.js",
-  "main": "opml-generator.js",
-  "scripts": {
-    "test": "mocha tests"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/azu/opml-generator.git"
-  },
-  "keywords": [
-    "opml",
-    "rss",
-    "feeds"
-  ],
-  "author": "azu",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/azu/opml-generator/issues"
-  },
-  "homepage": "https://github.com/azu/opml-generator",
-  "dependencies": {
-    "power-assert": "~0.3.1",
-    "mocha": "~1.17.0",
-    "xml": "0.0.10"
-  }
+    "name": "opml-generator",
+    "version": "1.0.0",
+    "description": "opml generator for node.js",
+    "main": "opml-generator.js",
+    "scripts": {
+        "test": "mocha tests"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/azu/opml-generator.git"
+    },
+    "keywords": [
+        "opml",
+        "rss",
+        "feeds"
+    ],
+    "author": "azu",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/azu/opml-generator/issues"
+    },
+    "homepage": "https://github.com/azu/opml-generator",
+    "dependencies": {
+        "xml": "0.0.10"
+    },
+    "devDependencies": {
+        "power-assert": "~0.3.1",
+        "mocha": "~1.17.0"
+    }
+
 }
