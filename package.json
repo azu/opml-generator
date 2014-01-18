@@ -2,9 +2,9 @@
   "name": "opml-generator",
   "version": "1.0.0",
   "description": "opml generator for node.js",
-  "main": "index.js",
+  "main": "opml-generator.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests"
   },
   "repository": {
     "type": "git",

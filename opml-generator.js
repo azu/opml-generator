@@ -3,7 +3,7 @@
  * LICENSE : MIT
  */
 var xml = require("xml");
-function createOutlines(outlines) {
+function createBody(outlines) {
     var outlines = outlines.map(function (outline) {
         var oneLine = Object.keys(outline).map(function (key) {
             var object = {};
@@ -15,14 +15,14 @@ function createOutlines(outlines) {
         };
     });
     return xml({
-        "outline": outlines
+        "body": outlines
     });
 }
 function createHeader(header) {
     var headerObject = Object.keys(header).map(function (key) {
         var object = {};
         var value = header[key];
-        if (key === "date" && value instanceof Date) {
+        if (key === "dateCreated" && value instanceof Date) {
             object[key] = value.toUTCString();
         } else {
             object[key] = value;
@@ -40,8 +40,11 @@ function createHeader(header) {
  */
 module.exports = function (header, outlines) {
     var headerXML = createHeader(header);
-    var outlinesXML = createOutlines(outlines);
-    return headerXML + outlinesXML;
+    var outlinesXML = createBody(outlines);
+    return '<?xml version="1.0" encoding="UTF-8"?><opml version="2.0">'
+        + headerXML
+        + outlinesXML
+        + '</opml>';
 };
 module.exports.createHeader = createHeader;
-module.exports.createOutlines = createOutlines;
+module.exports.createBody = createBody;

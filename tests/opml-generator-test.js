@@ -9,7 +9,7 @@ describe("opml", function () {
         it("should concat header + outlines", function () {
             var header = {
                 "title": "title-text",
-                "date": new Date(2014, 2, 9),
+                "dateCreated": new Date(2014, 2, 9),
                 "ownerName": "azu"
             };
             var headerXML = opml.createHeader(header);
@@ -29,23 +29,23 @@ describe("opml", function () {
                     "htmlUrl": "http://example.com/"
                 }
             ];
-            var outlinesXML = opml.createOutlines(outlines);
-            assert.strictEqual(opml(header, outlines), headerXML + outlinesXML);
+            var outlinesXML = opml.createBody(outlines);
+            assert.strictEqual(opml(header, outlines), '<?xml version="1.0" encoding="UTF-8"?><opml version="2.0">' + headerXML + outlinesXML + '</opml>');
         });
     });
     describe("header", function () {
         it("should create <head /> string", function () {
             var results = opml.createHeader({
                 "title": "title-text",
-                "date": new Date(2014, 2, 9),
+                "dateCreated": new Date(2014, 2, 9),
                 "ownerName": "azu"
             });
-            assert.strictEqual(results, '<head><title>title-text</title><date>Sat, 08 Mar 2014 15:00:00 GMT</date><ownerName>azu</ownerName></head>')
+            assert.strictEqual(results, '<head><title>title-text</title><dateCreated>Sat, 08 Mar 2014 15:00:00 GMT</dateCreated><ownerName>azu</ownerName></head>')
         });
     });
     describe("outline", function () {
         it("should create <outline /> string", function () {
-            var results = opml.createOutlines([
+            var results = opml.createBody([
                 {
                     text: "txt",
                     title: "title-text",
@@ -61,10 +61,10 @@ describe("opml", function () {
                     "htmlUrl": "http://example.com/"
                 }
             ]);
-            assert.strictEqual(results, '<outline>' +
+            assert.strictEqual(results, '<body>' +
                 '<outline><text>txt</text><title>title-text</title><type>rss</type><xmlUrl>http://example.com/rss</xmlUrl><htmlUrl>http://example.com/</htmlUrl></outline>' +
                 '<outline><text>txt</text><title>title-text</title><type>rss</type><xmlUrl>http://example.com/rss</xmlUrl><htmlUrl>http://example.com/</htmlUrl></outline>' +
-                '</outline>')
+                '</body>')
         });
     });
 });
