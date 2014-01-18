@@ -61,10 +61,7 @@ describe("opml", function () {
                     "htmlUrl": "http://example.com/"
                 }
             ]);
-            assert.strictEqual(results, '<body>' +
-                '<outline><text>txt</text><title>title-text</title><type>rss</type><xmlUrl>http://example.com/rss</xmlUrl><htmlUrl>http://example.com/</htmlUrl></outline>' +
-                '<outline><text>txt</text><title>title-text</title><type>rss</type><xmlUrl>http://example.com/rss</xmlUrl><htmlUrl>http://example.com/</htmlUrl></outline>' +
-                '</body>')
+            assert.strictEqual(results, '<body><outline text="txt" title="title-text" type="rss" xmlUrl="http://example.com/rss" htmlUrl="http://example.com/"/><outline text="txt" title="title-text" type="rss" xmlUrl="http://example.com/rss" htmlUrl="http://example.com/"/></body>')
         });
     });
 });

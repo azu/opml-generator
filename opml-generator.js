@@ -5,13 +5,10 @@
 var xml = require("xml");
 function createBody(outlines) {
     var outlines = outlines.map(function (outline) {
-        var oneLine = Object.keys(outline).map(function (key) {
-            var object = {};
-            object[key] = outline[key];
-            return object;
-        });
         return {
-            "outline": oneLine
+            "outline": {
+                _attr : outline
+            }
         };
     });
     return xml({
