@@ -4,11 +4,36 @@ Generate opml from object.
 
 ## Installation
 
-- [ ] Describe the installation process
+```sh
+npm install opml-generator
+```
 
 ## Usage
 
-- [ ] Write usage instructions
+``` js
+var header = {
+    "title": "title-text",
+    "dateCreated": new Date(2014, 2, 9),
+    "ownerName": "azu"
+};
+var outlines = [
+    {
+        text: "txt",
+        title: "title-text",
+        type: "rss",
+        "xmlUrl": "http://example.com/rss",
+        "htmlUrl": "http://example.com/"
+    },
+    {
+        text: "txt",
+        title: "title-text",
+        type: "rss",
+        "xmlUrl": "http://example.com/rss",
+        "htmlUrl": "http://example.com/"
+    }
+];
+opml(header, outlines);// => XML
+```
 
 ## Contributing
 
