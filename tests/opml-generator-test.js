@@ -64,4 +64,18 @@ describe("opml", function () {
             assert.strictEqual(results, '<body><outline text="txt" title="title-text" type="rss" xmlUrl="http://example.com/rss" htmlUrl="http://example.com/"/><outline text="txt" title="title-text" type="rss" xmlUrl="http://example.com/rss" htmlUrl="http://example.com/"/></body>')
         });
     });
+    describe("outline", function () {
+        it("should create <outline /> string", function () {
+            var results = opml.createBody([
+                {
+                    text: "one",
+                    _children: [{text: "childofone"}]
+                },
+                {
+                    text: "two",
+                }
+            ]);
+            assert.strictEqual(results, '<body><outline text="one"><outline text="childofone"/></outline><outline text="two"/></body>')
+        });
+    });
 });
