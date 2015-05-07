@@ -37,7 +37,7 @@ describe("opml", function () {
         it("should create <head /> string", function () {
             var results = opml.createHeader({
                 "title": "title-text",
-                "dateCreated": new Date(2014, 2, 9),
+                "dateCreated": new Date('Sun, 09 Mar 2014 08:00:00 GMT'),
                 "ownerName": "azu"
             });
             assert.strictEqual(results, '<head><title>title-text</title><dateCreated>Sun, 09 Mar 2014 08:00:00 GMT</dateCreated><ownerName>azu</ownerName></head>')
