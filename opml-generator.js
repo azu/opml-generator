@@ -5,13 +5,10 @@
 var xml = require("xml");
 function createOutlines(outlines) {
     return outlines.map(function (outline) {
-        if ('_children' in outline) {
+        if (outline.hasOwnProperty('_children')) {
             var children = outline['_children'];
-            console.log('child', children);
             delete outline['_children'];
-            var ret = createOutlines(children);
-            ret.unshift({_attr: outline});
-            return {'outline': ret};
+            return {'outline': createOutlines(children).concat({_attr: outline})};
         }
         return {
             "outline": {
@@ -22,10 +19,7 @@ function createOutlines(outlines) {
 }
 
 function createBody(outlines) {
-    var out = createOutlines(outlines);
-    console.log('out', JSON.stringify(out));
-    var ret = xml({'body': out});
-    return ret;
+    return xml({'body': createOutlines(outlines)});
 }
 
 function createHeader(header) {
