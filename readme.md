@@ -1,4 +1,4 @@
-# opml-generator.js
+# opml-generator.js [![Build Status](https://travis-ci.org/azu/opml-generator.svg)](https://travis-ci.org/azu/opml-generator)
 
 Generate opml from object.
 
