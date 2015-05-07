@@ -1,6 +1,6 @@
 {
   "name": "opml-generator",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "opml generator for node.js",
   "main": "opml-generator.js",
   "scripts": {
