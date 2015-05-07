@@ -22,10 +22,10 @@
   },
   "homepage": "https://github.com/azu/opml-generator",
   "dependencies": {
-    "xml": "0.0.10"
+    "xml": "^1.0.0"
   },
   "devDependencies": {
-    "power-assert": "~0.3.1",
-    "mocha": "~1.17.0"
+    "mocha": "^2.2.4",
+    "power-assert": "^0.11.0"
   }
 }
