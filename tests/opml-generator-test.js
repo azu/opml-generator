@@ -40,7 +40,7 @@ describe("opml", function () {
                 "dateCreated": new Date(2014, 2, 9),
                 "ownerName": "azu"
             });
-            assert.strictEqual(results, '<head><title>title-text</title><dateCreated>Sat, 08 Mar 2014 15:00:00 GMT</dateCreated><ownerName>azu</ownerName></head>')
+            assert.strictEqual(results, '<head><title>title-text</title><dateCreated>Sun, 09 Mar 2014 08:00:00 GMT</dateCreated><ownerName>azu</ownerName></head>')
         });
     });
     describe("outline", function () {
