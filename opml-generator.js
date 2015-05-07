@@ -3,18 +3,25 @@
  * LICENSE : MIT
  */
 var xml = require("xml");
-function createBody(outlines) {
-    var outlines = outlines.map(function (outline) {
+function createOutlines(outlines) {
+    return outlines.map(function (outline) {
+        if (outline.hasOwnProperty('_children')) {
+            var children = outline['_children'];
+            delete outline['_children'];
+            return {'outline': createOutlines(children).concat({_attr: outline})};
+        }
         return {
             "outline": {
                 _attr : outline
             }
         };
     });
-    return xml({
-        "body": outlines
-    });
 }
+
+function createBody(outlines) {
+    return xml({'body': createOutlines(outlines)});
+}
+
 function createHeader(header) {
     var headerObject = Object.keys(header).map(function (key) {
         var object = {};
